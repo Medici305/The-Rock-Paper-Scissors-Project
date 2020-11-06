@@ -1,0 +1,95 @@
+@import 'components/mixin/mixins';
+@import 'components/placeholder/placeholders';
+@import 'components/variable/variables';
+@import '../node_modules/hover.css/css/hover.css';
+@import '../node_modules/materialize-css/dist/css/materialize.css';
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+    font-family: 'Barlow Semi Condensed';
+}
+
+html {
+    font: {
+        size: 18px;
+        weight: 500;
+    }
+}
+
+.game {
+    //@include border(4px, yellow);
+    @include dimension(100vh, auto);
+    @include flex(flex, column, none, center);
+    background: radial-gradient($color-background);
+    .score {
+        @include border(4px, $header-outline);
+        flex: 0.2;
+        width: 50%;
+        margin-top: 3rem;
+        border-radius: 1rem;
+        @include flex(flex,row,space-evenly,center);
+        .player-score, .computer-score {
+            flex: .25;
+            height: 75%;
+            border-radius: 1rem;
+            background-color: #fff;
+            color: $dark-text;
+            @include flex(flex, column, none, center);
+            h6 {
+                font: {
+                    size: 1rem;
+                    weight: 600;
+                }
+            }
+            p{
+                font: {
+                    size: 3.3rem;
+                    weight: 700;
+                }
+                margin-top: -1rem;
+            }
+        }
+        .player-score {
+        }
+        .title {
+            //@include border(4px, yellow);
+            @include flex(flex,row,center,center);
+            h5 {
+                color: #fff;
+                font : {
+                    size: 2rem;
+                    weight: 700;
+                }
+            }
+        }
+        .computer-score {
+
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .game {
+        .score {
+            width: 85%;
+            flex: 0.1;
+            .player-score, .computer-score {
+                flex: .4;
+                h6 {
+                    font-size: 1rem;
+                }
+                p {
+                    font-size: 2.5rem;
+                }
+            }
+            .title {
+                h5 {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+}
